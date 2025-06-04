@@ -4,13 +4,17 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const nagivate = useNavigate();
+    const navigate = useNavigate();
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        nagivate('/home')
-        console.log('Logging in:', { email, password });
-    }
+
+        if (email === 'anu.grah@xyz.com' && password === 'anu') {
+            navigate('/home');
+        } else {
+            alert('Invalid credentials');
+        }
+    };
     return (
         <form onSubmit={handleLogin} className='space-y-2'>
             <input
